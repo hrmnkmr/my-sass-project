@@ -1,0 +1,11 @@
+$parent-name: '.main';
+$img-path: './img/';
+#{$parent-name} {
+$scope-value: 50px;
+width: 500px;
+height: 500px;
+margin: $scope-value;
+padding: $scope-value;
+// 画像は用意してないのでコメントアウトしています
+// background: url(${$img-path}img.png);
+}
