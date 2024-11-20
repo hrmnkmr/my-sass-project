@@ -1,11 +1,29 @@
-$parent-name: '.main';
-$img-path: './img/';
-#{$parent-name} {
-$scope-value: 50px;
-width: 500px;
-height: 500px;
-margin: $scope-value;
-padding: $scope-value;
-// 画像は用意してないのでコメントアウトしています
-// background: url(${$img-path}img.png);
+.main {
+  // 足し算
+  width: 500px + 100px;
+
+  // 引き算
+  height: 700px - 100px;
+
+  // 掛け算
+  margin: 5px * 2;
+
+  // 割り算
+  padding: (20px / 2);
+
+  // 割り算の余り
+  border-width: 10px % 3;
 }
+
+
+// $parent-name: '.main';
+// $img-path: './img/';
+// #{$parent-name} {
+// $scope-value: 50px;
+// width: 500px;
+// height: 500px;
+// margin: $scope-value;
+// padding: $scope-value;
+// // 画像は用意してないのでコメントアウトしています
+// // background: url(${$img-path}img.png);
+// }
