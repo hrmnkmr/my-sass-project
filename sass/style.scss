@@ -1,19 +1,160 @@
-.main {
-  // 足し算
-  width: 500px + 100px;
-
-  // 引き算
-  height: 700px - 100px;
-
-  // 掛け算
-  margin: 5px * 2;
-
-  // 割り算
-  padding: (20px / 2);
-
-  // 割り算の余り
-  border-width: 10px % 3;
+/* HTMLタグでの継承 */
+/* 基本スタイル */
+button {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
+
+/* クラスで継承 */
+.btn-primary {
+  @extend button; /* buttonのスタイルを継承 */
+  font-size: 16px;
+}
+
+/* クラスで継承 */
+.btn-secondary {
+  @extend button; /* buttonのスタイルを継承 */
+  background-color: gray;
+}
+/* HTMLタグでの継承ここまで */
+
+
+/* IDセレクターでの継承 */
+/* 基本スタイル */
+#main-header {
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* クラスで継承 */
+.header-box {
+  @extend #main-header; /* #main-headerのスタイルを継承 */
+  border: 1px solid white;
+}
+/* IDセレクターでの継承ここまで */
+
+
+
+.is-flex {
+  display: flex;
+  }
+  .main-box {
+  width: 300px;
+  height: 300px;
+  background: #ff0000;
+  }
+  .mini-box-area {
+  width: 100px;
+  height: 100px;
+  }
+  .sub-box {
+  position: relative;
+  @extend .main-box;
+  @extend .is-flex;
+  &-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #0008f3;
+  @extend .mini-box-area;
+  }
+  }
+
+
+// .is-flex {
+//   display: flex;
+// }
+// .main-box {
+//   width: 300px;
+//   height: 300px;
+//   background: #ff0000;
+// }
+// .mini-box-area {
+//   width: 100px;
+//   height: 100px;
+// }
+// .sub-box {
+//   position: relative;
+//   @extend .main-box;
+//   @extend .is-flex;
+//   &-content {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     background: #0008f3;
+//     @extend .mini-box-area;
+//   }
+// }
+
+
+
+
+/*
+.main-box {
+  width: 300px;
+  height: 300px;
+  background: #ff0000;
+}
+
+@media screen and (max-width: 1199px) {
+  .sub-box {
+    @extend .main-box;
+  }
+}
+*/
+
+
+
+// .is-flex {
+//   display: flex;
+// }
+// .main-box {
+//   width: 300px;
+//   height: 300px;
+//   background: #ff0000;
+// }
+// .sub-box {
+//   @extend .main-box;
+//   @extend .is-flex;
+// }
+
+
+
+
+// .main-box {
+//   width: 300px;
+//   height: 300px;
+//   background: #ff0000;
+// }
+
+// .sub-box {
+//   @extend .main-box;
+// }
+
+
+
+// .main {
+//   // 足し算
+//   width: 500px + 100px;
+
+//   // 引き算
+//   height: 700px - 100px;
+
+//   // 掛け算
+//   margin: 5px * 2;
+
+//   // 割り算
+//   padding: (20px / 2);
+
+//   // 割り算の余り
+//   border-width: 10px % 3;
+// }
+
 
 
 // $parent-name: '.main';
