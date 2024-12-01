@@ -1,78 +1,90 @@
 @charset "UTF-8";
-/* HTMLタグでの継承 */
-/* 基本スタイル */
-button, .btn-secondary, .btn-primary {
-  background-color: green;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
+.item image {
+  float: left;
+}
+@media screen and (max-width: 768px) {
+  .item image {
+    float: none;
+  }
+}
+.item .text {
+  overflow: hidden;
+  margin-left: 15px;
+}
+@media screen and (max-width: 768px) {
+  .item .text {
+    margin-left: 0;
+  }
 }
 
-/* クラスで継承 */
-.btn-primary {
-  /* buttonのスタイルを継承 */
-  font-size: 16px;
+/*.main-box {
+  @mixin boxContent($value: 300px, $margin: 0 auto, $padding: 0) {
+    width: $value;
+    height: $value;
+    margin: $margin;
+    padding: $padding;
+  }
+
+  .sub-box {
+    @include boxContent(100px, 0 50px, 20px);
+    background: #0011ff;
+  }
 }
 
-/* クラスで継承 */
-.btn-secondary {
-  /* buttonのスタイルを継承 */
-  background-color: gray;
-}
-
-/* HTMLタグでの継承ここまで */
-/* IDセレクターでの継承 */
-/* 基本スタイル */
-#main-header, .header-box {
-  background-color: blue;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-/* クラスで継承 */
-.header-box {
-  /* #main-headerのスタイルを継承 */
-  border: 1px solid white;
-}
-
-/* IDセレクターでの継承ここまで */
-.is-flex, .sub-box {
-  display: flex;
-}
-
-.main-box, .sub-box {
+// エラーを起こす
+// .sub-box {
+//   @include boxContent(100px, 0 50px, 20px);
+//   background: #0011ff;
+// }*/
+/*@mixin boxContent($value: 300px, $margin: 0 auto, $padding: 0) {
+  width: $value;
+  height: $value;
+  margin: $margin;
+  padding: $padding;
+  }
+  .main-box {
+  @include boxContent;
+  background: #ff0000;
+  }
+  .sub-box {
+  @include boxContent(100px, 0 50px, 20px);
+  background: #0011ff;
+  }*/
+/*@mixin boxContent($value: 300px) {
+  width: $value;
+  height: $value;
+  }
+  .main-box {
+  @include boxContent;
+  background: #ff0000;
+  }
+  .sub-box {
+  @include boxContent(100px);
+  background: #0011ff;
+  }*/
+/*@mixin boxContent($value) {
+  width: $value;
+  height: $value;
+  }
+  .main-box {
+  @include boxContent(300px);
+  background: #ff0000;
+  }
+  .sub-box {
+  @include boxContent(100px);
+  background: #0011ff;
+  }*/
+/*@mixin boxContent {
   width: 300px;
   height: 300px;
-  background: #ff0000;
 }
 
-.mini-box-area, .sub-box-content {
-  width: 100px;
-  height: 100px;
+.main-box {
+  @include boxContent;
+  background: #ff0000;
 }
 
 .sub-box {
-  position: relative;
-}
-.sub-box-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #0008f3;
-}
-
-/*
-.main-box {
-  width: 300px;
-  height: 300px;
-  background: #ff0000;
-}
-
-@media screen and (max-width: 1199px) {
-  .sub-box {
-    @extend .main-box;
-  }
-}
-*/
+  @include boxContent;
+  background: #0011ff;
+}*/
