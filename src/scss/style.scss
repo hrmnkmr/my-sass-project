@@ -1,0 +1,15 @@
+@mixin boxStyle($width, $height, $background) {
+  width: $width;
+  height: $height;
+  background: $background;
+}
+
+.main-box {
+  @include boxStyle(300px, 300px, #ff0000);
+}
+
+@media screen and (max-width: 1199px) {
+  .sub-box {
+    @include boxStyle(300px, 300px, #ff0000); // 同じスタイルを再利用
+  }
+}
