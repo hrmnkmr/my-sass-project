@@ -12,3 +12,6 @@ gulp.task('sass', function() {
 gulp.task('watch', function() {
   gulp.watch('src/scss/**/*.scss', gulp.series('sass'));
 });
+
+// defaultタスクを定義（watchを実行するよう設定）
+gulp.task('default', gulp.series('sass', 'watch'));
