@@ -1,21 +1,21 @@
-@charset "UTF-8";
-.item image {
+/* @charset "UTF-8"; */
+/* .item image {
   float: left;
-}
-@media screen and (max-width: 768px) {
+} */
+/* @media screen and (max-width: 768px) {
   .item image {
     float: none;
   }
-}
-.item .text {
+} */
+/* .item .text {
   overflow: hidden;
   margin-left: 15px;
-}
-@media screen and (max-width: 768px) {
+} */
+/* @media screen and (max-width: 768px) {
   .item .text {
     margin-left: 0;
   }
-}
+} */
 
 /*.main-box {
   @mixin boxContent($value: 300px, $margin: 0 auto, $padding: 0) {
