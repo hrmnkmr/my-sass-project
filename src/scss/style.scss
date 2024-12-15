@@ -1,4 +1,141 @@
-@mixin boxStyle($width, $height, $background) {
+@use 'common'; // _common.scss をインポート
+
+// ボタン間の余白を追加
+.content__sns__btn {
+  display: block;
+  padding: 20px 30px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 10px;  // ボタン間の余白
+}
+
+.content__sns__btn:last-child {
+  margin-bottom: 0;  // 最後のボタンには余白をつけない
+}
+
+// SNS ボタンのスタイル
+.content__sns__btn {
+  @each $sns in common.$snsClass {
+    &.is-#{$sns} {
+      @include common.btn(map-get(common.$map, $sns)); // map-get を使用
+    }
+  }
+}
+
+
+
+
+
+
+// @mixin の定義
+
+/* @mixin conditional-styles($type) {
+  @if $type == 'primary' {
+    background-color: blue;
+    color: white;
+  } @else if $type == 'secondary' {
+    background-color: gray;
+    color: black;
+  } @else {
+    background-color: white;
+    color: black;
+  }
+} */
+
+// クラスに適用
+
+/* .primary-class {
+  @include conditional-styles('primary');
+} */
+
+/* .secondary-class {
+  @include conditional-styles('secondary');
+} */
+
+/* .default-class {
+  @include conditional-styles('default');
+} */
+
+
+$map: (
+"header": #acc1ed,
+"main": #dc7668,
+"footer": #71d0f2,
+);
+@each $key, $value in $map {
+.#{$key}-bg-color {
+background: $value;
+}
+}
+
+$value: 20;
+@while $value > 0 {
+  .while-sample-#{$value} {
+    margin: $value + px;
+  }
+  $value: $value - 10;
+}
+
+
+/*$value: 20;
+
+@while $value > 0 {
+  .while-sample-#{$value} {
+    margin: $value + px;
+  }
+  $value: $value - 10; // 繰り返しごとに値を10減少
+}
+
+
+@for $value from 1 through 3 {
+  .through-sample-#{$value * 10} {
+    margin: 10px * $value;
+  }
+}
+
+@for $value from 1 to 3 {
+  .to-sample-#{$value * 10} {
+    margin: 10px * $value;
+  }
+}
+
+
+
+$bgColor: 1;
+
+@if $bgColor == 0 {
+  .bg-color {
+    background-color: red;
+  }
+} @else if $bgColor == 1 {
+  .bg-color {
+    background-color: blue;
+  }
+} @else {
+  .bg-color {
+    background-color: green;
+  }
+}
+
+
+
+$floatValue: true;
+
+@if $floatValue {
+  .is-float {
+    float: left;
+  }
+} @else {
+  .is-float {
+    float: right;
+  }
+}*/
+
+
+/*@mixin boxStyle($width, $height, $background) {
   width: $width;
   height: $height;
   background: $background;
@@ -12,4 +149,4 @@
   .sub-box {
     @include boxStyle(300px, 300px, #ff0000); // 同じスタイルを再利用
   }
-}
+}*/
