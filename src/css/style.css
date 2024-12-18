@@ -1,0 +1,52 @@
+.inner {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.item image {
+  float: left;
+}
+@media screen and (max-width: 768px) {
+  .item image {
+    float: none;
+  }
+}
+.item .text {
+  overflow: hidden;
+  margin-left: 15px;
+}
+@media screen and (max-width: 768px) {
+  .item .text {
+    margin-left: 0;
+  }
+}
+
+.content__sns__btn {
+  display: block;
+  padding: 20px 30px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.content__sns__btn.is-line {
+  background-color: #00B900;
+}
+
+.content__sns__btn.is-instagram {
+  background-color: #CF2E92;
+}
+
+.content__sns__btn.is-facebook {
+  background-color: #71d0f2;
+}
+
+.content__sns__btn.is-X {
+  background-color: black;
+}
+/*# sourceMappingURL=style.css.map */
