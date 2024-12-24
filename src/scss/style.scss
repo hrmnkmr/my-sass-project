@@ -1,5 +1,5 @@
 // 共通スタイルやmixinのインポート
-@use 'common'; // _common.scssをインポート
+@use './common'; // _common.scssをインポート
 
 // Mixin: メディアクエリ用
 @mixin media($media-width: 768px) {
@@ -7,14 +7,6 @@
     @content;
   }
 }
-
-// 変数: SNSボタン用の色マップ
-$button-map: (
-  "line": #00B900,
-  "instagram": #CF2E92,
-  "facebook": #71d0f2,
-  "X": black
-);
 
 // コンテンツ: アイテムのスタイル
 .item {
@@ -47,9 +39,23 @@ $button-map: (
   margin-bottom: 10px; // ボタン同士の余白を追加
 }
 
-// SNSボタンごとの色を設定
-@each $sns, $color in $button-map {
-  .content__sns__btn.is-#{$sns} {
-    background-color: $color; // SNSごとに異なる色を適用
+// Mixin: SNSボタンスタイルを条件で適用
+@mixin sns-button($class, $color) {
+  @if $class == "line" or $class == "instagram" or $class == "facebook" or $class == "X" {
+    .content__sns__btn.is-#{$class} {
+      background-color: $color;
+      @include common.btn($color); // 共通スタイルを適用
+    }
   }
 }
+
+// SNSボタンのクラスを生成する
+@each $class in common.$snsClass {
+  @if map-has-key(common.$map, $class) {
+    @include sns-button($class, map-get(common.$map, $class)); // 正しく色を渡す
+  }
+  @else {
+    @warn "Class #{$class} is not defined in common.$map"; // 警告を出して確認
+  }
+}
+
