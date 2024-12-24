@@ -16,4 +16,12 @@
   text-align: center;
 }
 
+$map: (
+  "line": #00B900,
+  "instagram": #CF2E92,
+  "facebook": #71d0f2,
+  "X": #000000 // black を16進数で指定
+);
 
+
+$snsClass: "line", "instagram", "facebook", "X"; 
