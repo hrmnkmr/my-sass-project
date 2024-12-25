@@ -27,24 +27,20 @@
   }
 }
 
-// SNSボタンの共通スタイル
-.content__sns__btn {
-  display: block; // SNSボタンをブロック要素に設定
-  padding: 20px 30px;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  margin-bottom: 10px; // ボタン同士の余白を追加
-}
-
-// Mixin: SNSボタンスタイルを条件で適用
+// Mixin: SNSボタンスタイル
 @mixin sns-button($class, $color) {
   @if $class == "line" or $class == "instagram" or $class == "facebook" or $class == "X" {
     .content__sns__btn.is-#{$class} {
-      background-color: $color;
-      @include common.btn($color); // 共通スタイルを適用
+      display: block; // 共通スタイル
+      padding: 20px 30px;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      margin-bottom: 10px; // ボタン同士の余白を追加
+      background-color: $color; // 色を適用
+      @include common.btn($color); // 共通ボタンスタイルを適用
     }
   }
 }
@@ -52,10 +48,10 @@
 // SNSボタンのクラスを生成する
 @each $class in common.$snsClass {
   @if map-has-key(common.$map, $class) {
-    @include sns-button($class, map-get(common.$map, $class)); // 正しく色を渡す
+    @include sns-button($class, map-get(common.$map, $class)); // クラスを生成
   }
   @else {
-    @warn "Class #{$class} is not defined in common.$map"; // 警告を出して確認
+    @warn "Class #{$class} is not defined in common.$map"; // 警告を出す
   }
 }
 
