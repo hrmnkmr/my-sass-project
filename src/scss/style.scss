@@ -27,31 +27,39 @@
   }
 }
 
+// 有効なSNSボタンのクラスをリストとして定義
+$valid-sns-classes: "line", "instagram", "facebook", "X";
+
+// 共通のSNSボタンスタイル
+.content__sns__btn {
+  display: block;
+  padding: 20px 30px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 10px;
+  // background-color: ここでは設定しない
+}
+
 // Mixin: SNSボタンスタイル
 @mixin sns-button($class, $color) {
-  @if $class == "line" or $class == "instagram" or $class == "facebook" or $class == "X" {
-    .content__sns__btn.is-#{$class} {
-      display: block; // 共通スタイル
-      padding: 20px 30px;
-      color: #fff;
-      border-radius: 6px;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      margin-bottom: 10px; // ボタン同士の余白を追加
-      background-color: $color; // 色を適用
-      @include common.btn($color); // 共通ボタンスタイルを適用
-    }
+  .content__sns__btn.is-#{$class} {
+    background-color: $color; // SNSごとの色を適用
+    @include common.btn($color); // 共通のボタンスタイル（色の変更だけ）
   }
 }
 
 // SNSボタンのクラスを生成する
-@each $class in common.$snsClass {
-  @if map-has-key(common.$map, $class) {
-    @include sns-button($class, map-get(common.$map, $class)); // クラスを生成
-  }
-  @else {
-    @warn "Class #{$class} is not defined in common.$map"; // 警告を出す
+@each $class in $valid-sns-classes {
+  // SNSボタンの色を取得し、クラスに対応する色を適用
+  $color: map-get(common.$map, $class);
+  @if $color {
+    @include sns-button($class, $color); // 各SNSのボタンスタイルを生成
+  } @else {
+    @warn "No color found for SNS button class #{$class}"; // 色が見つからない場合の警告
   }
 }
+
 
