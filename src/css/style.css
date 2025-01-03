@@ -36,49 +36,17 @@
 
 .content__sns__btn.is-line {
   background-color: #00B900;
-  display: block;
-  padding: 20px 30px;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #00B900;
-  text-decoration: none;
-  text-align: center;
 }
 
 .content__sns__btn.is-instagram {
   background-color: #CF2E92;
-  display: block;
-  padding: 20px 30px;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #CF2E92;
-  text-decoration: none;
-  text-align: center;
 }
 
 .content__sns__btn.is-facebook {
   background-color: #71d0f2;
-  display: block;
-  padding: 20px 30px;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #71d0f2;
-  text-decoration: none;
-  text-align: center;
 }
 
 .content__sns__btn.is-X {
   background-color: #000000;
-  display: block;
-  padding: 20px 30px;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #000000;
-  text-decoration: none;
-  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
