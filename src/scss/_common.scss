@@ -5,16 +5,14 @@
   padding: 0 10px;
 }
 
-@mixin btn($color) {
-  display: block;
-  padding: 20px 30px;
-  color: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: $color;
-  text-decoration: none;
-  text-align: center;
+@mixin btn($color: null) {
+  @if $color !=null {
+    background-color: $color;
+  }
+
+  // 他のスタイル
 }
+
 
 $map: (
   "line": #00B900,
@@ -24,4 +22,4 @@ $map: (
 );
 
 
-$snsClass: "line", "instagram", "facebook", "X"; 
+$snsClass: "line", "instagram", "facebook", "X";
