@@ -35,7 +35,6 @@ $valid-sns-classes: "line", "instagram", "facebook", "X";
 
 // 共通のSNSボタンスタイル
 .content__sns__btn {
-  @include common.btn; // 共通のボタンスタイルを適用（引数なし）
   display: block; // 縦並びにする
   padding: 20px 30px; // ボタンの内側の余白を設定
   color: #fff; // 文字色
@@ -46,17 +45,13 @@ $valid-sns-classes: "line", "instagram", "facebook", "X";
   margin-bottom: 10px; // ボタンの下のマージン
 }
 
-// SNSボタンのクラスを生成する
-@each $class in $valid-sns-classes {
-  $color: map-get(common.$map, $class); // SNSボタンの色を取得
 
-  @if $color {
-    .content__sns__btn.is-#{$class} {
-      background-color: $color; // SNSごとの背景色を適用
-    }
+@if $color {
+  .content__sns__btn.is-#{$class} {
+    background-color: $color; // SNSごとの背景色を適用
   }
+}
 
-  @else {
-    @warn "No color found for SNS button class #{$class}"; // 色が見つからない場合の警告
-  }
+@else {
+  @warn "No color found for SNS button class #{$class}"; // 色が見つからない場合の警告
 }
