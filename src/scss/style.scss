@@ -1,4 +1,5 @@
 // 共通スタイルやmixinのインポート
+@use "sass:map"; // mapモジュールをインポート
 @use './common'; // _common.scssをインポート
 
 // Mixin: メディアクエリ用
@@ -45,13 +46,14 @@ $valid-sns-classes: "line", "instagram", "facebook", "X";
   margin-bottom: 10px; // ボタンの下のマージン
 }
 
+@each $class in $valid-sns-classes {
+  $color: map.get(common.$map, $class); // common.$mapからSNSの色を取得
 
-@if $color {
-  .content__sns__btn.is-#{$class} {
-    background-color: $color; // SNSごとの背景色を適用
+  @if $color {
+    .content__sns__btn.is-#{$class} {
+      background-color: $color; // SNSごとの背景色を適用
+    }
+  } @else {
+    @warn "No color found for SNS button class #{$class}"; // 色が見つからない場合の警告
   }
-}
-
-@else {
-  @warn "No color found for SNS button class #{$class}"; // 色が見つからない場合の警告
 }
